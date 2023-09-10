@@ -1,0 +1,25 @@
+import java.util.Scanner;
+
+public class P2 {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        int negativeCount = 0;
+
+        while (true) {
+            int num = sc.nextInt();
+
+            if (num == 0) {
+                System.out.print(negativeCount + " ");
+                negativeCount = 0;
+
+                if (!sc.hasNextInt()) {
+                    break;
+                }
+            } else if (num < 0) {
+                negativeCount++;
+            }
+        }
+
+    }
+}

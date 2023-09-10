@@ -1,0 +1,23 @@
+import java.util.Scanner;
+
+public class P1 {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("How many double values? ");
+        int header = sc.nextInt();
+
+        System.out.print("Enter the first double value: ");
+        double smallDouble = sc.nextDouble();
+
+        for(int i = 0; i < header-1; i++){
+            System.out.print("Enter another double value: ");
+            double currentDouble = sc.nextDouble();
+
+            if(currentDouble<smallDouble){
+                smallDouble = currentDouble;
+            }
+        }
+        System.out.println("The smallest value is: " + smallDouble);
+    }
+}
