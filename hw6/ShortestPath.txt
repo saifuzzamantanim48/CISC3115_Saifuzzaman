@@ -1,0 +1,87 @@
+import java.util.Scanner;
+
+class Point2D {
+    private double x;
+    private double y;
+    private String label;
+
+    public Point2D() {
+        this("", 0.0, 0.0);
+    }
+
+    public Point2D(String label, double x, double y) {
+        this.label = label;
+        this.x = x;
+        this.y = y;
+    }
+
+    public Point2D(Scanner scanner) {
+        this.label = scanner.next();
+        this.x = scanner.nextDouble();
+        this.y = scanner.nextDouble();
+    }
+
+    public double distance(Point2D other) {
+        double dx = this.x - other.x;
+        double dy = this.y - other.y;
+        return Math.sqrt(dx * dx + dy * dy);
+    }
+
+    public String getLabel() {
+        return label;
+    }
+
+    @Override
+    public String toString() {
+        return label + "(" + x + "," + y + ")";
+    }
+}
+
+class Path3 {
+    private String label;
+    private Point2D startPoint;
+    private Point2D interiorPoint;
+    private Point2D endPoint;
+
+    public Path3(String label, Point2D startPoint, Point2D interiorPoint, Point2D endPoint) {
+        this.label = label;
+        this.startPoint = startPoint;
+        this.interiorPoint = interiorPoint;
+        this.endPoint = endPoint;
+    }
+
+    public Path3(Scanner scanner) {
+    }
+
+    public String getLabel() {
+        return label;
+    }
+
+    public double length() {
+        return startPoint.distance(interiorPoint) + interiorPoint.distance(endPoint);
+    }
+
+    @Override
+    public String toString() {
+        return label + "-" + startPoint.getLabel() + "-" + interiorPoint.getLabel() + "-" + endPoint.getLabel();
+    }
+}
+
+public class ShortestPath {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        Path3 path1 = new Path3(scanner);
+        Path3 path2 = new Path3(scanner);
+
+        if (path1.length() < path2.length()) {
+            System.out.println(path1.getLabel() + " " + path1.length());
+            System.out.println(path2.getLabel() + " " + path2.length());
+            System.out.println("Shortest path: " + path1.getLabel());
+        } else {
+            System.out.println(path1.getLabel() + " " + path1.length());
+            System.out.println(path2.getLabel() + " " + path2.length());
+            System.out.println("Shortest path: " + path2.getLabel());
+        }
+    }
+}

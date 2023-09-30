@@ -1,0 +1,85 @@
+import java.util.Scanner;
+
+class point2D {
+    private double x;
+    private double y;
+    private String label;
+
+    public point2D() {
+        this("", 0.0, 0.0);
+    }
+
+    public point2D(String label, double x, double y) {
+        this.label = label;
+        this.x = x;
+        this.y = y;
+    }
+
+    public point2D(String label, Scanner scanner) {
+        this.label = label;
+        this.x = scanner.nextDouble();
+        this.y = scanner.nextDouble();
+    }
+
+    public double distance(point2D other) {
+        double dx = this.x - other.x;
+        double dy = this.y - other.y;
+        return Math.sqrt(dx * dx + dy * dy);
+    }
+
+    public String getLabel() {
+        return label;
+    }
+
+    @Override
+    public String toString() {
+        return label + "(" + x + "," + y + ")";
+    }
+}
+
+class path3 {
+    private String label;
+    private point2D startPoint;
+    private point2D interiorPoint;
+    private point2D endPoint;
+
+    public path3(String label, point2D startPoint, point2D interiorPoint, point2D endPoint) {
+        this.label = label;
+        this.startPoint = startPoint;
+        this.interiorPoint = interiorPoint;
+        this.endPoint = endPoint;
+    }
+
+    public String getLabel() {
+        return label;
+    }
+
+    public double length() {
+        return startPoint.distance(interiorPoint) + interiorPoint.distance(endPoint);
+    }
+
+    @Override
+    public String toString() {
+        return label + "-" + startPoint.getLabel() + "-" + interiorPoint.getLabel() + "-" + endPoint.getLabel();
+    }
+}
+
+public class BestRoute {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        point2D pointA = new point2D("A", scanner);
+        point2D pointB = new point2D("B", scanner);
+        point2D pointC = new point2D("C", scanner);
+        point2D pointD = new point2D("D", scanner);
+
+        path3 pathABD = new path3("A-B-D", pointA, pointB, pointD);
+        path3 pathACD = new path3("A-C-D", pointA, pointC, pointD);
+
+        if (pathABD.length() < pathACD.length()) {
+            System.out.println("Best Route: " + pathABD.getLabel());
+        } else {
+            System.out.println("Best Route: " + pathACD.getLabel());
+        }
+    }
+}
