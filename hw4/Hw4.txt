@@ -1,0 +1,23 @@
+import java.awt.*;
+
+public class Main {
+    public static void main(String[] args) {
+        Point p = new Point(3, 4);
+        Rectangle box = new Rectangle(0, 0, 100, 200);
+
+        rectmovleft(p,box);
+
+        if (box.x < 0) {
+            System.out.println("Usage: input x is not legal");
+        } else {
+            System.out.println(box.toString());
+        }
+    }
+
+    public static void rectmovleft(Point p, Rectangle box) {
+        if (p.x >= 0) {
+            box.x = box.x + p.x;
+            box.y = box.y + p.y;
+        }
+    }
+}
