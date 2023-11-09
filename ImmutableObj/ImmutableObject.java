@@ -54,7 +54,7 @@ public class ImmutableObject {
     }
     public static String isInArray(String[][] myArray, String inputWords) {
         for (int i = 0; i < myArray.length; i++) {
-            for (int j = 0; j < myArray.length; j++) {
+            for (int j = 0; j < myArray[i].length; j++) {
                 if (inputWords.equals(myArray[i][j])) {
                     return inputWords;
                 }
