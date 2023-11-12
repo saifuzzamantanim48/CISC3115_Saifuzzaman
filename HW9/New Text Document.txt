@@ -1,0 +1,57 @@
+13.1/ Ans: e ,f
+
+13.3/ Ans: T, T, F, T, T
+
+13.4/ Number numberRef = 0;
+      Double doubleRef = (Double)numberRef.doubleValue();
+
+13.5/ List<Number> numberList = new ArrayList<>();
+      numberList.add(new Integer(0));
+      numberList.add(new Double(1.5));
+
+13.6/ Ans: 3, 3.0
+
+13.7/ Ans: The compareTo method is not defined in the Number class.
+
+13.7/ Ans: Casting doesn't solve the probelm. 
+           Integer.compare(x.intValue(), new Integer(4));
+
+13.13/ Ans: No, we cannot create an instance of an interface using new A in Java.
+            Interfaces are abstract by nature and cannot be instantiated directly.
+
+13.14/ Ans: Yes, we can decalre a refrence variable o ftype interface.
+
+13.15/ Ans: d
+
+13.16/ interface A {
+    void m1();
+}
+class B implements A {
+    public void m1() {
+        System.out.println("m1");
+    }
+}
+
+13.17/ True, since classes will come with built in compareTo() method. 
+
+13.18/ public int compareTo(String o)
+
+13.19/ No, n1.compareTo() method requires Integer parameter. 
+	Integer n1 = new Integer(3);
+        Object n2 = new Integer(4);
+        System.out.println(n1.compareTo((Integer) n2));
+
+13.20/ Ans: implementing the Comparable interface provides a standardized, more readable
+
+13.21/ Ans: Person class should have Comparable<Person>. Also a getId() method.  
+
+13.22/ Ans: The java.util.Date class does implement the Cloneable interface, 
+so you can directly invoke the clone() method on Date objects to create a copy of the date.
+
+13.22/ Ans:true false true
+
+13.23/ Ans: true, false, list is [New York, Atlanta], list1 is [New York, Atlanta]
+
+13.26/ Ans: GeometricObject y = (GeometricObject) x.clone();
+
+13.29/ Ans: True, True, True, False, False
